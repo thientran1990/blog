@@ -1,0 +1,19 @@
+.messenger_commeter
+  div
+    p.messenger_name = comment.commenter
+    p.messenger_contend = comment.body
+    p
+      = link_to 'Destroy Comment', [comment.article, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' }
+
+/ <div class="messenger_commeter">
+/   <div>
+/       <p class="messenger_name"><%= comment.commenter %></p>
+/       <p class="messenger_contend"><%= comment.body %></p>
+/       <p><%= link_to 'Destroy Comment', [comment.article, comment],
+/                    method: :delete,
+/                    data: { confirm: 'Are you sure?' } %>
+/       </p>    
+/   </div>
+/ </div>

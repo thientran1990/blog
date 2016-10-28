@@ -1,0 +1,23 @@
+h1.title Blog Newdsd
+.body
+  h1 = link_to 'Add new article' , new_article_path ,:id=>"test"
+  - @article.each do |article|
+	  .article
+	    h2 
+	    	b = link_to article.title, article_path(article),:class =>"article_title"
+	    h4.article_text = article.text
+/ <!-- html -->
+/ <!-- <h1 class="title">Blog News</h1>
+
+/ <div class="body">
+/      <h1> <%= link_to 'Add new article', new_article_path ,:id=>"test"%></h1>
+/     <% @article.each do |article| %>
+/     <div class="article">
+/       <h2><b><%= link_to article.title, article_path(article),:class =>"article_title"%>
+/       </b></h2>
+
+/       <h4 class="article_text"><%= article.text %></h4>
+/     </div>
+/     <% end %>
+
+

@@ -1,0 +1,21 @@
+#main
+	h1.title[style="margin-left:0"] | Blog News
+	.menu	
+		= link_to 'Blog News', articles_path
+		| > 
+		= link_to @article.title, article_path(@article)
+		| > Edit
+	= render 'form'
+
+
+
+/ <div id="main" >
+/ 	<h1 class="title" style="margin-left: 0;font-size: ">Blog News</h1>
+	
+/ 	<div class="menu">
+/ 	<%= link_to 'Blog News', articles_path %> > <%= link_to @article.title, article_path(@article) %> > Edit
+/ 	</div>
+
+
+/   <%= render 'form' %>
+/ </div>

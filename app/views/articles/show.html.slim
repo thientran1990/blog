@@ -1,0 +1,47 @@
+h1.title[style="margin-left: 0"] Blog News
+#main
+	.menu 
+		= link_to 'Blog News' , articles_path 
+		|	> 
+		= @article.title
+	h2.title_show 
+		b = @article.title
+	p.text_show = @article.text
+	.edit_show
+		= link_to 'Edit', edit_article_path(@article)
+		|  | 
+		= link_to 'Delete',article_path(@article),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' }
+#main
+	h2 Add a comment
+	.vnnews-box-cmt = render 'comments/form'
+	h2 Comments 
+	= render @article.comments
+
+
+/ <div id="main" >
+/ 	<h1 class="title" style="margin-left: 0;font-size: ">Blog News</h1>
+/ 	<div class="menu"> 
+/ 	<%= link_to 'Blog News', articles_path %> > <%= @article.title %>
+/ 	</div>
+/ 	<h2 class ="title_show"><b><%= @article.title %>
+/ 	</b></h2>
+/ 	  <p class="text_show"><%= @article.text %></p>
+/ 	<div class="edit_show">
+/ 	<%= link_to 'Edit', edit_article_path(@article) %> |
+/ 	<%= link_to 'Destroy', article_path(@article),
+/                       method: :delete,
+/                       data: { confirm: 'Are you sure?' } %>
+/ 	</div>
+/ </div>
+
+/ <div id="main" >
+/ 	<h2>Add a comment:</h2>
+/ 	<div class="vnnews-box-cmt">
+/ 		<%= render 'comments/form' %>
+/ 	</div>
+
+/ 	<h2>Comments</h2>
+/ 		<%= render @article.comments %>
+/ </div>
