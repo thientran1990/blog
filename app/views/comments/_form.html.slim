@@ -1,17 +1,19 @@
 = form_for([@article, @article.comments.build], remote: true)   do |f| 
-	div = f.text_field :commenter , placeholder: "Your name"
-	.commenter_body = f.text_area :body, placeholder: "Comment here"
-	.commenter_button = f.submit 
+	div= f.text_field :commenter , placeholder: "Your name"
+    .commenter_body = f.text_area :body, placeholder: "Comment here"
+    = f.submit
+    
+    input.commenter_button onclick="test_ajax()"  name="dsd" value="dfsdf" type="button" 
+// note.
+//                body : $('#comment_body').val();
+/           getaction=document.getElementById("new_comment").action;
+/         $('#comments_here').html(getaction);
+/ "<%= escape_javascript(render @article.comments ) %>"
+/.append("<%= j render(:partial => 'comments/foobar') %>");
 
 
-/ <%= form_for([@article, @article.comments.build]) do |f| %>
-/   <div>
-/     <%= f.text_field :commenter , placeholder: "Your name"%>
-/   </div>
-/   <div class="commenter_body">
-/     <%= f.text_area :body, placeholder: "Comment here" %>
-/   </div>
-/   <div class="commenter_button">
-/     <%= f.submit %>
-/   </div>
-/ <% end %>
+
+
+
+
+		

@@ -14,12 +14,33 @@ h1.title[style="margin-left: 0"] Blog News
                       method: :delete,
                       data: { confirm: 'Are you sure?' }
 #main
-	h2 Add a comment
-	.vnnews-box-cmt = render 'comments/form'
 	h2 Comments 
-	= render @article.comments
+	div#comments_here
+		= render @article.comments
+	h2#add_comments Add a comment
+	.vnnews-box-cmt = render 'comments/form'
 
+javascript:
+	getaction=document.getElementById("new_comment").action;
+	$('#new_comment').submit('ajax:success', function(event){ 
+        event.preventDefault();
 
+        var action = $(this).attr('action');
+    	var method = $(this).attr('method');
+    	var description = $(this).find('#comment_commenter').val();
+    	var priority = $(this).find('#comment_body').val();
+        //$("#comments_here").html("data");
+       // $("#comments_here").closest('tr').fadeOut();
+
+       $.ajax({
+	      method: method,
+	      url: action,
+	      data: { description: description, priority: priority }
+	    });
+
+    });	
+
+<script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 / <div id="main" >
 / 	<h1 class="title" style="margin-left: 0;font-size: ">Blog News</h1>
 / 	<div class="menu"> 

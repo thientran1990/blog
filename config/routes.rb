@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :tests
   	get 'articles/new'
-
-	get 'welcome/index'
+  	#get 'articles/test.html'
 	resources :articles do
   		resources :comments
  	end
