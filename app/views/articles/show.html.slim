@@ -20,25 +20,24 @@ h1.title[style="margin-left: 0"] Blog News
 	h2#add_comments Add a comment
 	.vnnews-box-cmt = render 'comments/form'
 
-javascript:
-	getaction=document.getElementById("new_comment").action;
-	$('#new_comment').submit('ajax:success', function(event){ 
-        event.preventDefault();
+/ javascript:
+/ / 	getaction=document.getElementById("new_comment").action;
+/ 	$('#new_comment').submit('ajax:success', function(event){ 
+/         event.preventDefault();
 
-        var action = $(this).attr('action');
-    	var method = $(this).attr('method');
-    	var description = $(this).find('#comment_commenter').val();
-    	var priority = $(this).find('#comment_body').val();
-        //$("#comments_here").html("data");
-       // $("#comments_here").closest('tr').fadeOut();
+/         var action = $(this).attr('action');
+/     	var method = $(this).attr('method');
+/     	var commenter = $(this).find('#comment_commenter').val();
+/     	var body = $(this).find('#comment_body').val();
 
-       $.ajax({
-	      method: method,
-	      url: action,
-	      data: { description: description, priority: priority }
-	    });
 
-    });	
+/        $.ajax({
+/ 	      method: method,
+/ 	      url: action,
+/ 	      data: { commenter: commenter, body: body }
+/ 	    });
+
+/     });	
 
 <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 / <div id="main" >

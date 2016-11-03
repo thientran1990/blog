@@ -12,7 +12,33 @@
 /.append("<%= j render(:partial => 'comments/foobar') %>");
 
 
+/ javascript:
+/ 	getaction=document.getElementById("new_comment").action;
+/ 	$('#new_comment').submit('ajax:success', function(event){ 
+/         event.preventDefault();
+/         $("#comments_here").html("j (render @article.commesnts)");
+/     });	
 
+javascript:
+	function test_ajax(){
+		var body = $('#comment_body').val();
+    	console.log(body);
+    	$("#comments_here").append(body);
+
+	}
+	$('#new_comment').submit('ajax:success', function(event){ 
+        var action = $(this).attr('action');
+    	var method = $(this).attr('method');
+    	var commenter = $('#comment_commenter').val();
+    	var body = $('#comment_body').val();
+
+       $.ajax({
+       		type: 'POST',
+		    url: action,
+		    data: { commenter: commenter, body: body }
+		});
+
+    });	
 
 
 
