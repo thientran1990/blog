@@ -3,7 +3,7 @@
     .commenter_body = f.text_area :body, placeholder: "Comment here"
     = f.submit
     
-    input.commenter_button onclick="test_ajax()"  name="dsd" value="dfsdf" type="button" 
+    input.commenter_button onclick="test_ajax()"  value="test" type="button" 
 // note.
 //                body : $('#comment_body').val();
 /           getaction=document.getElementById("new_comment").action;
@@ -19,27 +19,40 @@
 /         $("#comments_here").html("j (render @article.commesnts)");
 /     });	
 
-javascript:
-	function test_ajax(){
-		var body = $('#comment_body').val();
-    	console.log(body);
-    	$("#comments_here").append(body);
+/ javascript:
+/ 	function test_ajax(){
+/ 		var body = $('#comment_body').val();
+/     	console.log(body);
+/     	var action = $(this).attr('action');
+/ 		var method = $(this).attr('method');
+/ 		var commenter = $('#comment_commenter').val();
+/ 		var body = $('#comment_body').val();
+/ 		$.ajax({
+/ 			type:"POST",
+/ 			url:action,
+/ 			data: { commenter: commenter, body: body },
+/ 			success :function(){
+/ 				console.log(commenter + body);
+/ 			}
+/ 		});
 
-	}
-	$('#new_comment').submit('ajax:success', function(event){ 
-        var action = $(this).attr('action');
-    	var method = $(this).attr('method');
-    	var commenter = $('#comment_commenter').val();
-    	var body = $('#comment_body').val();
-
-       $.ajax({
-       		type: 'POST',
-		    url: action,
-		    data: { commenter: commenter, body: body }
-		});
-
-    });	
-
+/ 	}
+/ 	$('#new_comment').click(function(){
+/ 		var action = $(this).attr('action');
+/ 		var method = $(this).attr('method');
+/ 		var commenter = $('#comment_commenter').val();
+/ 		var body = $('#comment_body').val();
+/ 		$.ajax({
+/ 			type:"POST",
+/ 			url:action,
+/ 			data: { commenter: commenter, body: body },
+/ 			success :function(){
+/ 				console.log(commenter + body);
+/ 			}
+/ 		});
+/ 		$("#comments_here").append();
+/ 	});
+	
 
 
 		

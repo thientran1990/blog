@@ -6,11 +6,11 @@
       = link_to 'Destroy Comment', [comment.article, comment],
                    method: :delete,remote: true , class: "destroy",
                    data: { confirm: 'Are you sure?' }
-javascript:
-	$('.destroy').bind('ajax:success',function(){
-		$(this).closest('.messenger_commeter').fadeOut();
-		console.log('ffds')
-	});
+/ javascript:
+/ 	$('.destroy').bind('ajax:success',function(){
+/ 		$(this).closest('.messenger_commeter').fadeOut();
+/ 		console.log('destroy success')
+/ 	});
 
 / <div class="messenger_commeter">
 /   <div>

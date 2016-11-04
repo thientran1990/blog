@@ -20,48 +20,40 @@ h1.title[style="margin-left: 0"] Blog News
 	h2#add_comments Add a comment
 	.vnnews-box-cmt = render 'comments/form'
 
-/ javascript:
-/ / 	getaction=document.getElementById("new_comment").action;
-/ 	$('#new_comment').submit('ajax:success', function(event){ 
-/         event.preventDefault();
+/javascript:
+/ 	getaction=document.getElementById("new_comment").action;
+	/ $('#new_comment').submit('ajax:success', function(event){ 
+ /        var action = $(this).attr('action');
+ /    	var method = $(this).attr('method');
+ /    	var commenter = $(this).find('#comment_commenter').val();
+ /    	var body = $(this).find('#comment_body').val();
+ /       $.ajax({
+	/       method: method,
+	/       url: action,
+	/       data: { commenter: commenter, body: body }
+	/     });
 
-/         var action = $(this).attr('action');
-/     	var method = $(this).attr('method');
-/     	var commenter = $(this).find('#comment_commenter').val();
-/     	var body = $(this).find('#comment_body').val();
+ /    });
 
+javascript:
+	$('.destroy').bind('ajax:success',function(){
+		$(this).closest('.messenger_commeter').fadeOut();
+		console.log('destroy success')
+	});
 
-/        $.ajax({
-/ 	      method: method,
-/ 	      url: action,
-/ 	      data: { commenter: commenter, body: body }
-/ 	    });
+	$('#new_comment').submit('ajax:success', function(event){ 
+         event.preventDefault();
+         $("#comments_here").html(location.reload(this));
+     });	
+	function test_ajax(){
+    	var action = document.getElementById("new_comment").action;
+		var method = $(this).attr('method');
+		var commenter = $('#comment_commenter').val();
+		var body = $('#comment_body').val();
+		console.log(commenter + body);
+		
 
-/     });	
+	}
 
 <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-/ <div id="main" >
-/ 	<h1 class="title" style="margin-left: 0;font-size: ">Blog News</h1>
-/ 	<div class="menu"> 
-/ 	<%= link_to 'Blog News', articles_path %> > <%= @article.title %>
-/ 	</div>
-/ 	<h2 class ="title_show"><b><%= @article.title %>
-/ 	</b></h2>
-/ 	  <p class="text_show"><%= @article.text %></p>
-/ 	<div class="edit_show">
-/ 	<%= link_to 'Edit', edit_article_path(@article) %> |
-/ 	<%= link_to 'Destroy', article_path(@article),
-/                       method: :delete,
-/                       data: { confirm: 'Are you sure?' } %>
-/ 	</div>
-/ </div>
-
-/ <div id="main" >
-/ 	<h2>Add a comment:</h2>
-/ 	<div class="vnnews-box-cmt">
-/ 		<%= render 'comments/form' %>
-/ 	</div>
-
-/ 	<h2>Comments</h2>
-/ 		<%= render @article.comments %>
-/ </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
